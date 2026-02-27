@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>API Status</title>
+  <style>
+    /* Base styles */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #1e1e2f;
+      color: #e0e0e0;
+    }
+
+    header {
+      background-color: #111125;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid #333;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: #4caf50;
+    }
+
+    main {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .card {
+      background-color: #2a2a3d;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.5);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      color: #4caf50;
+      margin-bottom: 10px;
+    }
+
+    .status-ok {
+      color: #4caf50;
+      font-weight: bold;
+    }
+
+    .status-error {
+      color: #f44336;
+      font-weight: bold;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #33334d;
+    }
+
+    tr:nth-child(even) {
+      background-color: #2f2f45;
+    }
+
+    tr:nth-child(odd) {
+      background-color: #24243a;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .card {
+        padding: 10px;
+      }
+
+      table th, table td {
+        padding: 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>API Status: <span class="<%= status === 'OK' ? 'status-ok' : 'status-error' %>"><%= status %></span></h1>
+  </header>
+  
+  <main>
+    <div class="card">
+        <h2>General Info</h2>
+        <p><strong>Timestamp:</strong> <%= timestamp %></p>
+        <p><strong>Uptime:</strong> <%= uptime %> seconds</p>
+        <p><strong>Version:</strong> <%= version %></p>
+    </div>
+
+    <div class="card">
+      <h2>Dependencies</h2>
+      <table>
+        <tr>
+          <th>Service</th>
+          <th>Status</th>
+        </tr>
+        <tr>
+          <td>Database</td>
+          <td class="<%= dbStatus === 'up' ? 'status-ok' : 'status-error' %>"><%= dbStatus.toUpperCase() %></td>
+        </tr>
+      </table>
+    </div>
+  </main>
+  <footer>
+    &copy; <%= new Date().getFullYear() %> Your API
+  </footer>
+</body>
+</html>
