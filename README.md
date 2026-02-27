@@ -12,6 +12,18 @@ Documentations of the APIs available will be made later on, but everything is in
 - [Git](https://git-scm.com/)
 - [NodeJS](https://nodejs.org/en). Version 24+
 
+There are two branches:
+
+`main`
+- Stable
+- Working
+- Happy
+
+`dev`
+- Bleeding edge
+- Breaks whenever it wants to
+- High cortisol
+
 ## Setup
 
 In your terminal:
